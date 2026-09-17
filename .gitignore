@@ -1,0 +1,20 @@
+# Arquivos compilados / binários
+*.o
+*.obj
+*.out
+*.exe
+*.dll
+*.so
+*.a
+
+# Arquivos de log e debug
+*.log
+*.gch
+*.dSYM/
+
+# Pastas de IDEs e editores
+.vscode/
+.idea/
+*.suo
+*.sln
+*.cbp
