@@ -3,12 +3,12 @@
 #include <time.h>
 #include <locale.h>
 
-// --- Assinaturas das Funções Principais ---
-int funcao1_ocorrencias(int n, int *vetor, int k, int *buscados);
-int funcao2_pares_matriz(int n, int matriz[n][n]);
-int funcao3_compara_matrizes(int n, int A[n][n][n], int B[n][n][n]);
-int funcao4_assimetricos(int n, int *vetor);
-int funcao5_busca_binaria(int n, int *A, int *B);
+// --- Inclusão dos Cabeçalhos das Funções ---
+#include "funcao1.h"
+#include "funcao2.h"
+#include "funcao3.h"
+#include "funcao4.h"
+#include "funcao5.h"
 
 // --- Funções Utilitárias ---
 
@@ -59,7 +59,8 @@ void executar_menu() {
         printf("0. Sair\n");
         printf("Escolha uma função: ");
         scanf("%d", &opcao);
-
+        puts("");
+        
         if (!opcao) break;
 
         // Checa se opção fornecida é válida
