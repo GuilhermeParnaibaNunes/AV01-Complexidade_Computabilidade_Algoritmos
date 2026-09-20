@@ -1,11 +1,11 @@
 # Projeto AV01 - Complexidade e Computabilidade de Algoritmos
 
 **Equipe:**
-1. [Nome do Membro 1]
-2. [Nome do Membro 2]
-3. [Nome do Membro 3]
-4. [Nome do Membro 4]
-5. [Nome do Membro 5]
+1. Matheus Ferreira Amaral
+2. Guilherme Parnaiba Nunes
+3. Caique Brito
+4. Tasso Tanouss
+5. Daniel Costa Carvalho Martins - 37196201 RGM
 
 ## Como executar
 Para baixar e testar o projeto localmente:
