@@ -45,6 +45,34 @@ void preencher_matriz_manual(int linhas, int colunas, int matriz[linhas][colunas
     }
 }
 
+int comparar_inteiros(const void *a, const void *b) {
+    int valor_a = *(const int *)a;
+    int valor_b = *(const int *)b;
+
+    return (valor_a > valor_b) - (valor_a < valor_b);
+}
+
+void preencher_vetor_aleatorio(int n, int vetor[]) {
+    for (int i = 0; i < n; i++) {
+        vetor[i] = rand() % 100;
+    }
+}
+
+void preencher_vetor_manual(int n, int vetor[], char nome) {
+    for (int i = 0; i < n; i++) {
+        printf("Insira o valor de %c[%d]: ", nome, i);
+        scanf("%d", &vetor[i]);
+    }
+}
+
+void imprimir_vetor(int n, int vetor[], char nome) {
+    printf("\nVetor %c:\n", nome);
+    for (int i = 0; i < n; i++) {
+        printf("%d ", vetor[i]);
+    }
+    printf("\n");
+}
+
 // --- Encapsulamento Total do Fluxo do Menu ---
 void executar_menu() {
     int opcao;
@@ -106,10 +134,38 @@ void executar_menu() {
                     printf("\n--- Executando Função 4 ---\n");
                     //funcao4_assimetricos()
                     break;
-                case 5:
+                case 5: {
+                    int n;
+
                     printf("\n--- Executando Função 5 ---\n");
-                    //funcao5_busca_binaria()
+                    printf("Digite o tamanho dos vetores: ");
+                    scanf("%d", &n);
+
+                    if (n <= 0) {
+                        printf("Tamanho inválido!\n");
+                        break;
+                    }
+
+                    int A[n];
+                    int B[n];
+
+                    if (preenchimento == 2) {
+                        preencher_vetor_aleatorio(n, A);
+                        preencher_vetor_aleatorio(n, B);
+                    } else {
+                        preencher_vetor_manual(n, A, 'A');
+                        preencher_vetor_manual(n, B, 'B');
+                    }
+
+                    qsort(A, n, sizeof(int), comparar_inteiros);
+
+                    imprimir_vetor(n, A, 'A');
+                    imprimir_vetor(n, B, 'B');
+
+                    int total = funcao5_busca_binaria(n, A, B);
+                    printf("\nTotal de elementos de B encontrados em A: %d\n", total);
                     break;
+                }
             }
         
     } while (opcao != 0);

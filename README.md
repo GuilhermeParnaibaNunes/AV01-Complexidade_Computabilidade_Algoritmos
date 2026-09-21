@@ -169,9 +169,38 @@ FIM
 * **Responsável:** [Nome]
 * **Pseudocódigo:**
 ```text
-INICIO
-  // Escreva o pseudocódigo aqui
-FIM
+FUNÇÃO BUSCA_BINARIA(A, n, valor)
+  inicio <- 0
+  fim <- n - 1
+
+  ENQUANTO inicio <= fim FAÇA
+    meio <- inicio + (fim - inicio) / 2
+
+    SE A[meio] = valor ENTÃO
+      RETORNE verdadeiro
+    FIM_SE
+
+    SE A[meio] < valor ENTÃO
+      inicio <- meio + 1
+    SENÃO
+      fim <- meio - 1
+    FIM_SE
+  FIM_ENQUANTO
+
+  RETORNE falso
+FIM_FUNÇÃO
+
+FUNÇÃO FUNCAO5_BUSCA_BINARIA(n, A, B)
+  total_encontrados <- 0
+
+  PARA i <- 0 ATÉ n - 1 FAÇA
+    SE BUSCA_BINARIA(A, n, B[i]) ENTÃO
+      total_encontrados <- total_encontrados + 1
+    FIM_SE
+  FIM_PARA
+
+  RETORNE total_encontrados
+FIM_FUNÇÃO
 ```
 
 
