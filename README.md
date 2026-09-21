@@ -113,24 +113,44 @@ FIM
 * **Responsável:** [Nome]
 * **Pseudocódigo:**
 ```text
-INICIO
-  // Escreva o pseudocódigo aqui
-FIM
+FUNÇÃO FUNCAO3_COMPARA_MATRIZES(n, A, B)
+  total_iguais <- 0
+
+  PARA i <- 0 ATÉ n - 1 FAÇA
+    PARA j <- 0 ATÉ n - 1 FAÇA
+      PARA k <- 0 ATÉ n - 1 FAÇA
+        SE A[i][j][k] = B[i][j][k] ENTÃO
+          total_iguais <- total_iguais + 1
+        FIM_SE
+      FIM_PARA
+    FIM_PARA
+  FIM_PARA
+
+  RETORNE total_iguais
+FIM_FUNÇÃO
 ```
 
 
 * **Análise de Complexidade (Linha a linha):**
-* Linha 1: O(1)
-* Linha 2: ...
+* Linha 1 (`total_iguais <- 0`): executada 1 vez -> O(1)
+* Linha 2 (`PARA i`): controla o laço externo, executa n+1 vezes (n iterações + 1 teste de saída) -> O(n)
+* Linha 3 (`PARA j`): aninhado em i, executa n vezes para cada i -> O(n²)
+* Linha 4 (`PARA k`): aninhado em i e j, executa n vezes para cada par (i, j) -> O(n³)
+* Linha 5 (`SE A[i][j][k] = B[i][j][k]`): comparação de custo constante, executada uma vez por combinação (i, j, k) -> O(n³)
+* Linha 6 (`total_iguais <- total_iguais + 1`): custo constante, executada no máximo n³ vezes (pior caso: todas as posições iguais) -> O(n³)
+* Linha 7 (`RETORNE total_iguais`): executada 1 vez -> O(1)
 
 
 * **Expressão de Complexidade e Big O:**
-* Expressão: ...
-* Big O: O(...)
+* Expressão: T(n) = c1 + c2·n + c3·n² + c4·n³ + c5·n³ + c6
+* O termo dominante é c4·n³ + c5·n³, pois cresce muito mais rápido que os demais quando n aumenta.
+* Big O: O(n³)
 
 
 * **Cálculo de Tempo (Entrada n=300):**
-* ...
+* Número de operações: n³ = 300³ = 27.000.000
+* Considerando uma máquina de referência capaz de executar ~10⁸ (100 milhões) operações elementares por segundo:
+* Tempo estimado = 27.000.000 / 100.000.000 = 0,27 segundos
 
 
 
