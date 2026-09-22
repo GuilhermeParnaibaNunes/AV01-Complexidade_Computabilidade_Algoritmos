@@ -2,10 +2,10 @@
 
 **Equipe:**
 1. Matheus Ferreira Amaral
-2. Guilherme Parnaiba Nunes
+2. Guilherme Parnaíba Nunes
 3. Caique Brito
 4. Tasso Tanouss
-5. Daniel Costa Carvalho Martins - 37196201 RGM
+5. Daniel Costa Carvalho Martins
 
 ## Como executar
 Para baixar e testar o projeto localmente:
@@ -75,6 +75,7 @@ funcao1_ocorrencias(n, vetor[n], k, buscados[k])
 
     retorne total
 fim
+```
 
 * **Análise de Complexidade (Linha a linha):**
 * Linha 1: `total = 0` → 1 vez → O(1)
@@ -101,7 +102,6 @@ fim
 * Portanto, o tempo estimado de execução é de aproximadamente **6 segundos**.
 
 
----
 ---
 
 ### Função 2: Análise de Pares em Matriz Triangular
@@ -232,7 +232,7 @@ FIM
 
 ### Função 5: Contagem de Elementos Presentes em Vetor Ordenado
 
-* **Responsável:** [Nome]
+* **Responsável:** Daniel Costa Carvalho Martins
 * **Pseudocódigo:**
 ```text
 FUNÇÃO BUSCA_BINARIA(A, n, valor)
