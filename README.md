@@ -55,30 +55,53 @@ projeto_av01.exe
 
 ## Documentação das Funções
 
-### Função 1: Contagem de Ocorrências Distintas
-* **Responsável:** [Nome]
+#### Função 1: Contagem de Ocorrências Distintas
+
+* **Responsável:** Matheus Ferreira Amaral
+
 * **Pseudocódigo:**
 ```text
-  INICIO
-    // Escreva o pseudocódigo aqui
-  FIM
-```
+funcao1_ocorrencias(n, vetor[n], k, buscados[k])
+
+    total = 0
+
+    para i variando de 1 até k faça
+        para j variando de 1 até n faça
+            se buscados[i] = vetor[j] então
+                total = total + 1
+            fim se
+        fim para
+    fim para
+
+    retorne total
+fim
 
 * **Análise de Complexidade (Linha a linha):**
-* Linha 1: O(1)
-* Linha 2: ...
+* Linha 1: `total = 0` → 1 vez → O(1)
+* Linha 2: `para i variando de 1 até k` → k + 1 vezes → O(k)
+* Linha 3: `para j variando de 1 até n` → k(n + 1) vezes → O(kn)
+* Linha 4: `se buscados[i] = vetor[j]` → kn vezes → O(kn)
+* Linha 5: `total = total + 1` → no pior caso, kn vezes → O(kn)
+* Linha 6: `retorne total` → 1 vez → O(1)
 
 
 * **Expressão de Complexidade e Big O:**
-* Expressão: ...
-* Big O: O(...)
+* Expressão: `T(n,k) = 1 + (k + 1) + k(n + 1) + kn + kn + 1`
+* Simplificando: `T(n,k) = 3kn + 2k + 3`
+* Big O: `O(nk)`
 
 
 * **Cálculo de Tempo (Entrada n=50.000, k=4.000):**
-* ...
+* `T(n,k) = 3kn + 2k + 3`
+* `T(50.000, 4.000) = 3 × 50.000 × 4.000 + 2 × 4.000 + 3`
+* `T(50.000, 4.000) = 600.008.003 instruções`
+* Considerando que o computador executa `10^8 = 100.000.000` instruções por segundo:
+* `Tempo = 600.008.003 / 100.000.000`
+* `Tempo ≈ 6,00008 segundos`
+* Portanto, o tempo estimado de execução é de aproximadamente **6 segundos**.
 
 
-
+---
 ---
 
 ### Função 2: Análise de Pares em Matriz Triangular
