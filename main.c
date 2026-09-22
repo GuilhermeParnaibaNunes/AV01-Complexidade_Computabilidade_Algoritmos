@@ -143,6 +143,8 @@ void executar_menu() {
 }
                 case 2: {
                     int n;
+
+                    printf("\n--- Executando Função 2 ---\n");
                     printf("Digite a dimensão N da matriz quadrada: ");
                     scanf("%d", &n);
                     
@@ -155,7 +157,10 @@ void executar_menu() {
                     }
                     
                     imprimir_matriz(n, n, matriz);
-                    // funcao2_pares_matriz(n, matriz);
+                    int pares_m5 = funcao2_pares_matriz(n, matriz);
+
+                    printf("\nA quantidade de pares múltiplos de 5 é de:\n"
+                            "\t- %d par(es).\n", pares_m5);
                     break;
                 }
                 case 3:
