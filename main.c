@@ -104,11 +104,43 @@ void executar_menu() {
         scanf("%d", &preenchimento);
 
             switch (opcao) {
-                case 1:
-                    printf("\n--- Executando Função 1 ---\n");
-                    // funcao1_ocorrencias()
-                    break;
-                    
+                
+                case 1: {
+    int n, k;
+
+    printf("\n--- Executando Função 1 ---\n");
+
+    printf("Digite o tamanho do vetor principal: ");
+    scanf("%d", &n);
+
+    printf("Digite a quantidade de elementos buscados: ");
+    scanf("%d", &k);
+
+    if (n <= 0 || k <= 0) {
+        printf("Tamanho inválido!\n");
+        break;
+    }
+
+    int vetor[n];
+    int buscados[k];
+
+    if (preenchimento == 2) {
+        preencher_vetor_aleatorio(n, vetor);
+        preencher_vetor_aleatorio(k, buscados);
+    } else {
+        preencher_vetor_manual(n, vetor, 'A');
+        preencher_vetor_manual(k, buscados, 'B');
+    }
+
+    imprimir_vetor(n, vetor, 'A');
+    imprimir_vetor(k, buscados, 'B');
+
+    int total = funcao1_ocorrencias(n, vetor, k, buscados);
+
+    printf("\nTotal de ocorrências encontradas: %d\n", total);
+
+    break;
+}
                 case 2: {
                     int n;
                     printf("Digite a dimensão N da matriz quadrada: ");
