@@ -83,28 +83,71 @@ projeto_av01.exe
 
 ### Função 2: Análise de Pares em Matriz Triangular
 
-* **Responsável:** [Nome]
+* **Responsável:** Guilherme Parnaíba Nunes
 * **Pseudocódigo:**
 ```text
 INICIO
-  // Escreva o pseudocódigo aqui
+-  FUNCAO2_PARES_MATRIZ(n, matriz[n][n])
+1    maiores_que_5 = i = j = 0
+-
+2    ENQUANTO i < n FAÇA
+3      j = i
+4      ENQUANTO j < n FAÇA
+5       SE matriz[j][i] + matriz[i][j] FOR MÚTIPLO DE 5 FAÇA
+6         INCREMENTA maiores_que_5
+-       FIM_SE
+7      INCREMENTA j
+-      FIM_ENQUANTO
+8    INCREMENTA i
+-    FIM_ENQUANTO
+-
+9    RETORNE maiores_que_5
+-  FIM_FUNCAO2_PARES_MATRIZ
 FIM
 ```
 
 * **Análise de Complexidade (Linha a linha):**
-* Linha 1: O(1)
-* Linha 2: ...
-
+>- Linha 1: 1 <br>
+>- Linha 2: n+1 <br>
+>- Linha 3: n <br>
+>- Linha 4: (n²+3n)/2 <br>
+>- Linha 5: (n²+n)/2 <br>
+>- Linha 6: (n²+n)/2 <br>
+>- Linha 7: (n²+n)/2 <br>
+>- Linha 8: n <br>
+>- Linha 9: 1 <br>
 
 * **Expressão de Complexidade e Big O:**
-* Expressão: ...
-* Big O: O(...)
-
+* *Expressão: 2n²+6n+3* 
+```
+    = 1+n+1+n+(n²+3n)/2+(n²+n)/2+(n²+n)/2+(n²+n)/2+n+1
+    = 3((n²+n)/2)+((n²+3n)/2)+3n+3
+    = 2n²+3n+3n+3
+    = 2n²+6n+3
+```
+* *Big O: O(n²)*
 
 * **Cálculo de Tempo (Entrada n=500):**
-* ...
-
-
+* *Pela expressão: 5,03003*10^-3*
+```
+    = 2(500)²+6(500)+3
+    = 2(250.000)+3.000+3
+    = 500.000+3.000+3
+    = 503.003
+    = 5,03003*10^5 (Instruções)
+    Tempo = intruções/vel. de processamento (10^8 inst./s)
+    Tempo = 5,03003*10^5/10^8
+    Tempo = 5,03003*10^-3 segundo ou 0,00503003 segundo
+```
+* *Pelo Big O: 2.5*10^-3 s*
+```
+    = (500)²
+    = 250.000
+    = 2.5*10^5 (Instruções)
+    Tempo = intruções/vel. de processamento (10^8 inst./s)
+    Tempo = 2.5*10^5/10^8
+    Tempo = 2.5*10^-3 segundo
+```
 
 ---
 
