@@ -204,8 +204,9 @@ FIM
 
 ### Função 4: Análise de Casos Assimétricos no Condicional
 
-Responsável: Tasso Tanouss
-Pseudocódigo:
+* **Responsável:** Tasso Tanouss
+* **Pseudocódigo:**
+```text
 INICIO
 -  PROCESSAR_VETOR(n, V[n])
 1    somatorio = 0
@@ -225,25 +226,39 @@ INICIO
 9    RETORNE somatorio
 -  FIM_PROCESSAR_VETOR
 FIM
+```
 
-Análise de Complexidade (Linha a linha):
-Linha 1: somatorio = 0 → atribuição, 1 vez → O(1)
-Linha 2: PARA i DE 0 ATÉ n-1 → controle do laço externo, n+1 vezes → O(n)
-Linha 3: SE V[i] MOD 2 = 0 → comparação, 1 vez por elemento → O(n)
-Linha 4: somatorio = somatorio + V[i] → só executa quando V[i] é par, no máximo n vezes, custo O(1) cada → O(n) no total
-Linha 5: fatorial = 1 → só executa quando V[i] é ímpar, O(1) por ocorrência
-Linha 6: PARA j DE 2 ATÉ V[i] → controle do laço interno, executa apenas para elementos ímpares; custa O(V[i]) por elemento ímpar
-Linha 7: fatorial = fatorial * j → corpo do laço interno, executa V[i]-1 vezes por elemento ímpar → O(V[i]) por elemento
-Linha 8: somatorio = somatorio + fatorial → só executa quando V[i] é ímpar, O(1) por ocorrência
-Linha 9: RETORNE somatorio → 1 vez → O(1)
+* **Análise de Complexidade (Linha a linha):**
+* Linha 1: `somatorio = 0` → atribuição, 1 vez → O(1)
+* Linha 2: `PARA i DE 0 ATÉ n-1` → controle do laço externo, n+1 vezes → O(n)
+* Linha 3: `SE V[i] MOD 2 = 0` → comparação, 1 vez por elemento → O(n)
+* Linha 4: `somatorio = somatorio + V[i]` → só executa quando V[i] é par, no máximo n vezes, custo O(1) cada → O(n) no total
+* Linha 5: `fatorial = 1` → só executa quando V[i] é ímpar, O(1) por ocorrência
+* Linha 6: `PARA j DE 2 ATÉ V[i]` → controle do laço interno, executa apenas para elementos ímpares; custa O(V[i]) por elemento ímpar
+* Linha 7: `fatorial = fatorial * j` → corpo do laço interno, executa V[i]-1 vezes por elemento ímpar → O(V[i]) por elemento
+* Linha 8: `somatorio = somatorio + fatorial` → só executa quando V[i] é ímpar, O(1) por ocorrência
+* Linha 9: `RETORNE somatorio` → 1 vez → O(1)
 
-Expressão de Complexidade e Big O:
-Pior caso (todos os elementos são ÍMPARES; assumindo, no pior caso, que cada elemento pode valer até n — hipótese necessária pois o enunciado não limita o valor máximo do vetor): T(n) = 1 (linha 1) + (n+1) (linha 2) + n (linha 3) + n (linha 5) + n² (linha 6) + (n²-n) (linha 7) + n (linha 8) + 1 (linha 9) T(n) = 2n² + 3n + 3
-Big O (pior caso): O(n²)
-Melhor caso (todos os elementos são PARES — o laço interno nunca executa): T(n) = 1 (linha 1) + (n+1) (linha 2) + n (linha 3) + n (linha 4) + 1 (linha 9) T(n) = 3n + 3
-Big O (melhor caso): O(n)
 
-Cálculo de Tempo (Entrada n=50.000, pior caso): T(n) = 2n² + 3n + 3 T(50.000) = 2 × (50.000)² + 3 × 50.000 + 3 T(50.000) = 5.000.150.003 instruções Tempo = instruções/vel. de processamento (10^8 inst./s) Tempo = 5.000.150.003/10^8 Tempo ≈ 50,0015 segundos
+* **Expressão de Complexidade e Big O:**
+* Pior caso (todos os elementos são ÍMPARES; assumindo, no pior caso, que cada elemento pode valer até n — hipótese necessária pois o enunciado não limita o valor máximo do vetor):
+T(n) = 1 (linha 1) + (n+1) (linha 2) + n (linha 3) + n (linha 5) + n² (linha 6) + (n²-n) (linha 7) + n (linha 8) + 1 (linha 9)
+T(n) = 2n² + 3n + 3
+* Big O (pior caso): **O(n²)**
+
+* Melhor caso (todos os elementos são PARES — o laço interno nunca executa):
+T(n) = 1 (linha 1) + (n+1) (linha 2) + n (linha 3) + n (linha 4) + 1 (linha 9)
+T(n) = 3n + 3
+* Big O (melhor caso): **O(n)**
+
+
+* **Cálculo de Tempo (Entrada n=50.000, pior caso):**
+T(n) = 2n² + 3n + 3
+T(50.000) = 2 × (50.000)² + 3 × 50.000 + 3
+T(50.000) = 5.000.150.003 instruções
+Tempo = instruções/vel. de processamento (10^8 inst./s)
+Tempo = 5.000.150.003/10^8
+Tempo ≈ 50,0015 segundos
    * ...
 
 
