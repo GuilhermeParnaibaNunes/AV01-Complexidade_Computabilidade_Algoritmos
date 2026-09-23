@@ -114,36 +114,42 @@ FIM
 * **Pseudocódigo:**
 ```text
 FUNÇÃO FUNCAO3_COMPARA_MATRIZES(n, A, B)
-  total_iguais <- 0
+  soma_A <- 0
+  soma_B <- 0
 
   PARA i <- 0 ATÉ n - 1 FAÇA
     PARA j <- 0 ATÉ n - 1 FAÇA
       PARA k <- 0 ATÉ n - 1 FAÇA
-        SE A[i][j][k] = B[i][j][k] ENTÃO
-          total_iguais <- total_iguais + 1
-        FIM_SE
+        soma_A <- soma_A + A[i][j][k]
+        soma_B <- soma_B + B[i][j][k]
       FIM_PARA
     FIM_PARA
   FIM_PARA
 
-  RETORNE total_iguais
+  SE soma_A >= soma_B ENTÃO
+    RETORNE 1
+  SENÃO
+    RETORNE 0
+  FIM_SE
 FIM_FUNÇÃO
 ```
 
 
 * **Análise de Complexidade (Linha a linha):**
-* Linha 1 (`total_iguais <- 0`): executada 1 vez -> O(1)
-* Linha 2 (`PARA i`): controla o laço externo, executa n+1 vezes (n iterações + 1 teste de saída) -> O(n)
-* Linha 3 (`PARA j`): aninhado em i, executa n vezes para cada i -> O(n²)
-* Linha 4 (`PARA k`): aninhado em i e j, executa n vezes para cada par (i, j) -> O(n³)
-* Linha 5 (`SE A[i][j][k] = B[i][j][k]`): comparação de custo constante, executada uma vez por combinação (i, j, k) -> O(n³)
-* Linha 6 (`total_iguais <- total_iguais + 1`): custo constante, executada no máximo n³ vezes (pior caso: todas as posições iguais) -> O(n³)
-* Linha 7 (`RETORNE total_iguais`): executada 1 vez -> O(1)
+* Linha 1 (`soma_A <- 0`): executada 1 vez -> O(1)
+* Linha 2 (`soma_B <- 0`): executada 1 vez -> O(1)
+* Linha 3 (`PARA i`): controla o laço externo, executa n+1 vezes (n iterações + 1 teste de saída) -> O(n)
+* Linha 4 (`PARA j`): aninhado em i, executa n vezes para cada i -> O(n²)
+* Linha 5 (`PARA k`): aninhado em i e j, executa n vezes para cada par (i, j) -> O(n³)
+* Linha 6 (`soma_A <- soma_A + A[i][j][k]`): custo constante, executada n³ vezes -> O(n³)
+* Linha 7 (`soma_B <- soma_B + B[i][j][k]`): custo constante, executada n³ vezes -> O(n³)
+* Linha 8 (`SE soma_A >= soma_B`): comparação de custo constante, executada 1 vez após os laços -> O(1)
+* Linha 9 (`RETORNE`): executada 1 vez -> O(1)
 
 
 * **Expressão de Complexidade e Big O:**
-* Expressão: T(n) = c1 + c2·n + c3·n² + c4·n³ + c5·n³ + c6
-* O termo dominante é c4·n³ + c5·n³, pois cresce muito mais rápido que os demais quando n aumenta.
+* Expressão: T(n) = c1 + c2 + c3·n + c4·n² + c5·n³ + c6·n³ + c7
+* O termo dominante é (c5 + c6)·n³, pois cresce muito mais rápido que os demais quando n aumenta.
 * Big O: O(n³)
 
 

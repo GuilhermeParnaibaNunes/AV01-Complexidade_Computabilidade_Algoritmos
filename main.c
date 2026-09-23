@@ -166,8 +166,8 @@ void executar_menu() {
                         preencher_matriz_manual_3d(n, 'B', B);
                     }
 
-                    int total = funcao3_compara_matrizes(n, A, B);
-                    printf("\nTotal de elementos iguais entre A e B: %d\n", total);
+                    int maior_ou_igual = funcao3_compara_matrizes(n, A, B);
+                    printf("\nA soma total de A é %s à soma total de B.\n", maior_ou_igual ? "maior ou igual" : "menor");
                     break;
                 }
                 case 4:
