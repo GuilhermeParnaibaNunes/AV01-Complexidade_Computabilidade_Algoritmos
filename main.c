@@ -172,10 +172,39 @@ void executar_menu() {
                 printf("\n--- Executando Função 3 ---\n");
                 //funcao3_compara_matrizes()
                 break;
-            case 4:
+        
+            case 4: {
+                int n;
+
                 printf("\n--- Executando Função 4 ---\n");
-                //funcao4_assimetricos()
+                printf("Digite o tamanho do vetor: ");
+                scanf("%d", &n);
+
+                if (n <= 0) {
+                    printf("Tamanho inválido!\n");
+                    break;
+                }
+
+                int vetor[n];
+
+                if (preenchimento == 2) {
+                    preencher_vetor_aleatorio(n, vetor);
+                } else {
+                    preencher_vetor_manual(n, vetor, 'A');
+                }
+
+                imprimir_vetor(n, vetor, 'A');
+
+                int ordenado = funcao4_assimetricos(n, vetor);
+
+                if (ordenado) {
+                    printf("\nO vetor está ordenado (caminho de pior caso: percorreu todo o vetor).\n");
+                } else {
+                    printf("\nO vetor NÃO está ordenado (caminho de melhor caso: retorno antecipado).\n");
+                }
+
                 break;
+            }
             case 5: {
                 int n;
 
