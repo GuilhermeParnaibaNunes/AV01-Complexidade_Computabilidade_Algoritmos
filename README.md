@@ -204,11 +204,9 @@ FIM
 
 ### Função 4: Análise de Casos Assimétricos no Condicional
 
-Responsável: Tasso Tanouss
-
-Pseudocódigo:
-
-text
+* **Responsável:** Tasso Tanouss
+* **Pseudocódigo:**
+```text
 INICIO
 -  FUNCAO4_ASSIMETRICOS(n, vetor[n])
 1    SE n <= 1 ENTÃO
@@ -224,34 +222,31 @@ INICIO
 6    RETORNE 1
 -  FIM_FUNCAO4_ASSIMETRICOS
 FIM
+```
 
-Análise de Complexidade (Linha a linha):
+* **Análise de Complexidade (Linha a linha):**
+* Linha 1: `SE n <= 1` → comparação, executada 1 vez → O(1)
+* Linha 2: `RETORNE 1` → só executa se n ≤ 1 (caso trivial) → O(1)
+* Linha 3: `PARA i DE 0 ATÉ n-2` → controle do laço, executa no máximo n-1 iterações + 1 verificação final → O(n)
+* Linha 4: `SE vetor[i] > vetor[i+1]` → comparação, 1 vez por iteração → O(n) no pior caso, O(1) no melhor caso
+* Linha 5: `RETORNE 0` → retorno antecipado, executa no máximo 1 vez em toda a execução (ou nenhuma, no pior caso) → O(1)
+* Linha 6: `RETORNE 1` → executa 1 vez, só se o laço terminar sem nenhuma inversão (pior caso) → O(1)
 
-Linha 1: SE n <= 1 → comparação, executada 1 vez → O(1)
-Linha 2: RETORNE 1 → só executa se n ≤ 1 (caso trivial) → O(1)
-Linha 3: PARA i DE 0 ATÉ n-2 → controle do laço, executa no máximo n-1 iterações + 1 verificação final → O(n)
-Linha 4: SE vetor[i] > vetor[i+1] → comparação, 1 vez por iteração → O(n) no pior caso, O(1) no melhor caso
-Linha 5: RETORNE 0 → retorno antecipado, executa no máximo 1 vez em toda a execução (ou nenhuma, no pior caso) → O(1)
-Linha 6: RETORNE 1 → executa 1 vez, só se o laço terminar sem nenhuma inversão (pior caso) → O(1)
 
-Expressão de Complexidade e Big O:
-
-Pior caso (vetor ordenado — laço executa por completo):
-
+* **Expressão de Complexidade e Big O:**
+* Pior caso (vetor ordenado — laço executa por completo):
 T(n) = 1 (linha 1) + n (linha 3) + (n-1) (linha 4) + 1 (linha 6)
 T(n) = 2n + 1
 
-Big O (pior caso): O(n)
+* Big O (pior caso): **O(n)**
 
-Melhor caso (inversão já na primeira comparação):
-
+* Melhor caso (inversão já na primeira comparação):
 T(n) = 1 (linha 1) + 1 (linha 3) + 1 (linha 4) + 1 (linha 5)
 T(n) = 4
+* Big O (melhor caso): **O(1)**
 
-Big O (melhor caso): O(1)
 
-Cálculo de Tempo (Entrada n=50.000, pior caso):
-
+* **Cálculo de Tempo (Entrada n=50.000, pior caso):**
 T(n) = 2n + 1
 T(50.000) = 2 × 50.000 + 1
 T(50.000) = 100.001 instruções
