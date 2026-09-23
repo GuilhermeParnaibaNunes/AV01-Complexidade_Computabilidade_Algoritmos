@@ -195,13 +195,10 @@ void executar_menu() {
 
                 imprimir_vetor(n, vetor, 'A');
 
-                int ordenado = funcao4_assimetricos(n, vetor);
+                int somatorio = funcao4_assimetricos(n, vetor);
 
-                if (ordenado) {
-                    printf("\nO vetor está ordenado (caminho de pior caso: percorreu todo o vetor).\n");
-                } else {
-                    printf("\nO vetor NÃO está ordenado (caminho de melhor caso: retorno antecipado).\n");
-                }
+                printf("\nSomatório resultante (pares somados diretamente, "
+                        "ímpares somados como fatorial): %d\n", somatorio);
 
                 break;
             }
