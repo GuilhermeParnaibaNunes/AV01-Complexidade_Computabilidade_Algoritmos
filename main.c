@@ -86,9 +86,9 @@ int comparar_inteiros(const void *a, const void *b) {
 }
 
 // Função para preencher vetor com valores aleatórios
-void preencher_vetor_aleatorio(int n, int vetor[]) {
+void preencher_vetor_aleatorio(int n, int vetor[], int limite) {
     for (int i = 0; i < n; i++) {
-        vetor[i] = rand() % 100;
+        vetor[i] = rand() % limite;
     }
 }
 
@@ -160,8 +160,8 @@ void executar_menu() {
                 int buscados[k];
 
                 if (preenchimento == 2) {
-                    preencher_vetor_aleatorio(n, vetor);
-                    preencher_vetor_aleatorio(k, buscados);
+                    preencher_vetor_aleatorio(n, vetor, 100);
+                    preencher_vetor_aleatorio(k, buscados, 100);
                 } else {
                     preencher_vetor_manual(n, vetor, 'A');
                     preencher_vetor_manual(k, buscados, 'B');
@@ -247,20 +247,21 @@ void executar_menu() {
                 int vetor[n];
 
                 if (preenchimento == 2) {
-                    preencher_vetor_aleatorio(n, vetor);
+                    preencher_vetor_aleatorio(n, vetor, 15);
                 } else {
                     preencher_vetor_manual(n, vetor, 'A');
                 }
 
                 imprimir_vetor(n, vetor, 'A');
 
-                int somatorio = funcao4_assimetricos(n, vetor);
+                unsigned long long somatorio = funcao4_assimetricos(n, vetor);
 
                 printf("\nSomatório resultante (pares somados diretamente, "
-                        "ímpares somados como fatorial): %d\n", somatorio);
+                        "ímpares somados como fatorial): %lu\n", somatorio);
 
                 break;
             }
+
             case 5: {
                 int n;
 
@@ -277,8 +278,8 @@ void executar_menu() {
                 int B[n];
 
                 if (preenchimento == 2) {
-                    preencher_vetor_aleatorio(n, A);
-                    preencher_vetor_aleatorio(n, B);
+                    preencher_vetor_aleatorio(n, A, 100);
+                    preencher_vetor_aleatorio(n, B, 100);
                 } else {
                     preencher_vetor_manual(n, A, 'A');
                     preencher_vetor_manual(n, B, 'B');
