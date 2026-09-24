@@ -3,9 +3,9 @@
 **Equipe:**
 1. Matheus Ferreira Amaral
 2. Guilherme Parnaiba Nunes
-3. Caique Brito - 46972960 RGM
+3. Caique Brito
 4. Tasso Tanouss
-5. Daniel Costa Carvalho Martins - 37196201 RGM
+5. Daniel Costa Carvalho Martins
 
 ## Como executar
 Para baixar e testar o projeto localmente:
@@ -110,7 +110,7 @@ FIM
 
 ### Função 3: Comparação de Matrizes Tridimensionais
 
-* **Responsável:** [Nome]
+* **Responsável:** Caique Brito
 * **Pseudocódigo:**
 ```text
 FUNÇÃO FUNCAO3_COMPARA_MATRIZES(n, A, B)

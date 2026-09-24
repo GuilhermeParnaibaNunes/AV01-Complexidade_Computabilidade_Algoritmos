@@ -2,8 +2,8 @@
 #include "funcao3.h"
 
 int funcao3_compara_matrizes(int n, int A[n][n][n], int B[n][n][n]) {
-    int soma_A = 0;
-    int soma_B = 0;
+    long long soma_A = 0;
+    long long soma_B = 0;
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
@@ -14,7 +14,7 @@ int funcao3_compara_matrizes(int n, int A[n][n][n], int B[n][n][n]) {
         }
     }
 
-    printf("Soma total de A: %d\n", soma_A);
-    printf("Soma total de B: %d\n", soma_B);
+    printf("Soma total de A: %lld\n", soma_A);
+    printf("Soma total de B: %lld\n", soma_B);
     return soma_A >= soma_B;
 }
