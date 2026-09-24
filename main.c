@@ -45,6 +45,38 @@ void preencher_matriz_manual(int linhas, int colunas, int matriz[linhas][colunas
     }
 }
 
+// Função para imprimir a matriz 3D
+void imprimir_matriz_3d(int n, int matriz[n][n][n]){
+    for (int i = 0; i < n; i++) {
+        printf("Camada %d:\n", i+1);
+        for (int j = 0; j < n; j++) {
+            for (int k = 0; k < n; k++) {
+                printf("%4d ", matriz[i][j][k]);
+            }
+            printf("\n"); // Quebra de linha após cada linha da matriz 2D
+        }
+        printf("\n"); // Linha em branco entre camadas
+    }
+}
+
+// Função para preencher matriz 3D com valores aleatórios
+void preencher_matriz_aleatoria_3d(int n, int matriz[n][n][n]) {
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < n; j++)
+            for (int k = 0; k < n; k++)
+                matriz[i][j][k] = rand() % 100;
+}
+
+// Função para preencher matriz 3D com valores manuais
+void preencher_matriz_manual_3d(int n, char nome, int matriz[n][n][n]) {
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < n; j++)
+            for (int k = 0; k < n; k++) {
+                printf("%c[%d][%d][%d] = ", nome, i, j, k);
+                scanf("%d", &matriz[i][j][k]);
+            }
+}
+
 // Função para comparar inteiros
 int comparar_inteiros(const void *a, const void *b) {
     int valor_a = *(const int *)a;
@@ -168,10 +200,37 @@ void executar_menu() {
                 break;
             }
             
-            case 3:
+            case 3: {
+                int n;
                 printf("\n--- Executando Função 3 ---\n");
-                //funcao3_compara_matrizes()
+                printf("Digite a dimensão N das matrizes (NxNxN): ");
+                scanf("%d", &n);
+
+                if (n <= 0) {
+                    printf("Tamanho inválido!\n");
+                    break;
+                }
+
+                int A[n][n][n];
+                int B[n][n][n];
+
+                if (preenchimento == 2) {
+                    preencher_matriz_aleatoria_3d(n, A);
+                    preencher_matriz_aleatoria_3d(n, B);
+                } else {
+                    preencher_matriz_manual_3d(n, 'A', A);
+                    preencher_matriz_manual_3d(n, 'B', B);
+                }
+
+                printf("*** Matriz A ***\n");
+                imprimir_matriz_3d(n, A);
+                printf("*** Matriz B ***\n");
+                imprimir_matriz_3d(n, B);
+
+                int maior_ou_igual = funcao3_compara_matrizes(n, A, B);
+                printf("\nA soma total de A é %s soma total de B.\n", maior_ou_igual ? "maior ou igual à" : "menor do que a");
                 break;
+            }
         
             case 4: {
                 int n;
