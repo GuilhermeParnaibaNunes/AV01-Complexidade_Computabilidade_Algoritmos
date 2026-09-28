@@ -285,13 +285,13 @@ void executar_menu() {
                     preencher_vetor_manual(n, B, 'B');
                 }
 
-                qsort(A, n, sizeof(int), comparar_inteiros);
+                qsort(B, n, sizeof(int), comparar_inteiros);
 
                 imprimir_vetor(n, A, 'A');
                 imprimir_vetor(n, B, 'B');
 
                 int total = funcao5_busca_binaria(n, A, B);
-                printf("\nTotal de elementos de B encontrados em A: %d\n", total);
+                printf("\nTotal de elementos de A encontrados em B: %d\n", total);
                 break;
             }
         }   

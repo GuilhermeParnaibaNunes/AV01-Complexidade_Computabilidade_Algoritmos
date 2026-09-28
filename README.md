@@ -285,16 +285,13 @@ T(50.000) = 5.000.150.003 instruções
 Tempo = instruções/vel. de processamento (10^8 inst./s)
 Tempo = 5.000.150.003/10^8
 Tempo ≈ 50,0015 segundos
-   * ...
-
-
 
 ---
 
 ### Função 5: Contagem de Elementos Presentes em Vetor Ordenado
 
 * **Responsável:** Daniel Costa Carvalho Martins
-* **Pseudocódigo:**
+* **Pseudocódigo:** 
 ```text
 FUNÇÃO BUSCA_BINARIA(A, n, valor)
   inicio <- 0
@@ -331,15 +328,30 @@ FIM_FUNÇÃO
 ```
 
 
-* **Análise de Complexidade (Linha a linha):**
-* Linha 1: O(1)
-* Linha 2: ...
+* **Análise de Complexidade (Pior Caso):**
+No pior caso, o elemento não é encontrado e a busca binária divide o vetor até o fim, executando $\approx \log_2 n$ iterações.
 
+> * `BUSCA_BINARIA`: O laço divide o espaço de busca pela metade a cada passo. Complexidade: $O(\log n)$.
+> * Laço Principal (Linhas 13 a 16): Executa $n$ vezes.
+> * Chamada da Busca (Linha 14): Para cada uma das $n$ iterações, executa uma operação de $O(\log n)$.
+> 
+> 
 
 * **Expressão de Complexidade e Big O:**
-* Expressão: ...
-* Big O: O(...)
+A ordenação inicial do vetor B via QuickSort (qsort) custa $O(n \log n)$.
+A execução do laço de busca custa $n \times \log_2 n$.
+* *Expressão simplificada das operações dominantes:* $n \log_2 n$
+* *Big O:* **O(n log n)**
+* **Cálculo de Tempo (Entrada n=50.000, pior caso da busca):**
+* *Pela expressão:*
 
+```
+    T(n) = n * log2(n)
+    T(n) = 50.000 * log2(50.000)
+    T(n) ≈ 50.000 * 15,61
+    T(n) ≈ 780.500 operações (no núcleo da busca)
+    Tempo = operações / vel. de processamento (10^8 inst./s)
+    Tempo = 780.500 / 100.000.000
+    Tempo ≈ 0,0078 segundos
 
-* **Cálculo de Tempo (Entrada n=10.000.000):**
-* ...
+```

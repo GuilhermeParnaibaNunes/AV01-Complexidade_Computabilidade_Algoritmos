@@ -25,7 +25,7 @@ int funcao5_busca_binaria(int n, int *A, int *B) {
     int total_encontrados = 0;
 
     for (int i = 0; i < n; i++) {
-        if (busca_binaria(A, n, B[i])) {
+        if (busca_binaria(B, n, A[i])) {
             total_encontrados++;
         }
     }
