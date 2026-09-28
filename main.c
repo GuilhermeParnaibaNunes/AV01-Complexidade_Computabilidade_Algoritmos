@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <locale.h>
+#include <windows.h>
 
 // --- Inclusão dos Cabeçalhos das Funções ---
 #include "funcao1.h"
@@ -222,7 +223,7 @@ void executar_menu() {
                     preencher_matriz_manual_3d(n, 'B', B);
                 }
 
-                printf("*** Matriz A ***\n");
+                printf("\n*** Matriz A ***\n");
                 imprimir_matriz_3d(n, A);
                 printf("*** Matriz B ***\n");
                 imprimir_matriz_3d(n, B);
@@ -300,8 +301,12 @@ void executar_menu() {
 
 // --- Função Principal ---
 int main() {
+    // Força o terminal do Windows a usar UTF-8 (código 65001)
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
+
     // Inclui os caracteres do português ao sistema
-    setlocale(LC_ALL, "pt-BR");
+    setlocale(LC_ALL, ".UTF-8");
 
     // Inicializa a semente para geração de números aleatórios
     srand(time(NULL));
